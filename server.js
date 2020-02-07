@@ -13,16 +13,16 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 // routes
-app.get("/", function (req, res) {
+app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
-app.get("/notes", function (req, res) {
+app.get("/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 // displays notes
-app.get("/api/notes", function (req, res) {
+app.get("/api/notes", (req, res) => {
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
         if (err) {
             throw err;
@@ -33,7 +33,7 @@ app.get("/api/notes", function (req, res) {
 });
 
 
-app.get("/api/notes", function (req, res) {
+app.get("/api/notes", (req, res) => {
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
         if (err) {
             throw err;
